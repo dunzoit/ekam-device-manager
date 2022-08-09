@@ -193,6 +193,31 @@ public class VersionFiltersTest {
     Assertions.assertEquals(matchingTargets.size(), 2);
   }
 
+  @Test
+  public void shouldValidateFilterByPlatformVersionIncludeListForBeta() {
+    DeviceFilter versionFilter =
+            DeviceFilter.builder()
+                    //
+                    .include(List.of("16"))
+                    .operator("=")
+                    .build();
+
+    // Build Model Filter with include list
+    DeviceFilters filters =
+            DeviceFilters.builder()
+                    //
+                    .platformVersion(versionFilter)
+                    .build();
+
+    Predicate<TargetDetails> predicate =
+            new DeviceFiltersManager().createDeviceFilters("ios", filters);
+
+    List<TargetDetails> matchingTargets =
+            targets.parallelStream().filter(predicate).collect(Collectors.toList());
+
+    Assertions.assertEquals(matchingTargets.size(), 1);
+  }
+
   private void init() {
     TargetDetails androidPie =
         TargetDetails.builder()
@@ -218,6 +243,12 @@ public class VersionFiltersTest {
             .platformVersion("12.0")
             .build();
 
-    targets = List.of(androidPie, android10, android11, android12);
+    TargetDetails ios16Beta=
+            TargetDetails.builder()
+                    .platform(EkamSupportedPlatforms.IOS)
+                    .platformVersion("16 Beta")
+                    .build();
+
+    targets = List.of(androidPie, android10, android11, android12, ios16Beta);
   }
 }

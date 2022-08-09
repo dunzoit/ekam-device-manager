@@ -60,9 +60,9 @@ public class DeviceFilterPredicates {
       List<String> includeList, DeviceFilterOperator operator) {
     return TargetDetails -> {
       VersionComparator actualVersionComparator =
-          new VersionComparator(TargetDetails.getPlatformVersion());
+          new VersionComparator(TargetDetails.getPlatformVersion().replace("Beta","").trim());
       VersionComparator expectedVersionComparator =
-          new VersionComparator(includeList.stream().findFirst().orElse("123456"));
+          new VersionComparator(includeList.stream().findFirst().orElse("123456").replace("Beta","").trim());
       return actualVersionComparator.matches(expectedVersionComparator, operator);
     };
   }
