@@ -4,12 +4,13 @@ plugins {
     id 'signing'
 }
 
-group 'com.testvagrant.ekam'
+group 'dunzoit'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -90,8 +91,9 @@ publishing {
             credentials {
                 username System.getenv("sonatypeUsername")
                 password System.getenv("sonatypePassword")
-//                username sonatypeUsername
-//                password sonatypePassword
+/*              username sonatypeUsername
+                password sonatypePassword
+*/
             }
         }
     }
@@ -112,33 +114,30 @@ def customizePom(pom) {
 
             description 'Ekam Device Manager Project to discover and manage devices'
             name 'Ekam Device Manager'
-            url 'https://github.com/testvagrant/ekam-device-manager'
+            url 'https://github.com/dunzoit/ekam-device-manager'
             organization {
                 name 'com.testvagrant.ekam'
                 url 'https://github.com/testvagrant'
             }
             issueManagement {
                 system 'GitHub'
-                url 'https://github.com/testvagrant/ekam-device-manager/issues'
+                url 'https://github.com/dunzoit/ekam-device-manager/issues'
             }
             licenses {
                 license {
                     name 'MIT License'
-                    url 'https://github.com/testvagrant/ekam-device-manager/-/blob/master/LICENSE'
+                    url 'https://github.com/dunzoit/ekam-device-manager/-/blob/master/LICENSE'
                     distribution 'repo'
                 }
             }
             scm {
-                url 'https://github.com/testvagrant/ekam-device-manager'
-                connection 'https://github.com/testvagrant/ekam-device-manager.git'
-                developerConnection 'git@github.com:testvagrant/ekam-device-manager.git'
+                url 'https://github.com/dunzoit/ekam-device-manager'
+                connection 'https://github.com/dunzoit/ekam-device-manager.git'
+                developerConnection 'git@github.com:dunzoit/ekam-device-manager.git'
             }
             developers {
                 developer {
-                    name 'Sudarshan GS'
-                }
-                developer {
-                    name 'Krishnanand B'
+                    name 'Ankit Soni'
                 }
             }
         }
@@ -152,6 +151,8 @@ model {
 }
 
 
-//signing {
-//    sign publishing.publications
-//}
+/*
+signing {
+    sign publishing.publications
+}
+*/
