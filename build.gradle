@@ -68,9 +68,9 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             customizePom(pom)
-            groupId 'com.testvagrant.ekam'
+            groupId 'dunzoit'
             artifactId 'ekam-device-manager'
-            version '1.0.2-beta'
+            version '1.0.3'
 
             from components.java
 
@@ -152,6 +152,6 @@ model {
 }
 
 
-signing {
-    sign publishing.publications
-}
+//signing {
+//    sign publishing.publications
+//}
