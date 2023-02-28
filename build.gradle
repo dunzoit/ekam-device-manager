@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'maven-publish'
     id 'signing'
+    id "com.google.cloud.artifactregistry.gradle-plugin" version "2.1.5"
 }
 
 group 'dunzoit'
@@ -86,14 +87,14 @@ publishing {
 
     repositories {
         maven {
-            url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-            credentials {
+            url "artifactregistry://asia-south1-maven.pkg.dev/dev-application-294611/maven-qe"
+/*            credentials {
                 username System.getenv("sonatypeUsername")
                 password System.getenv("sonatypePassword")
-/*              username sonatypeUsername
+                username sonatypeUsername
                 password sonatypePassword
-*/
             }
+*/
         }
     }
 }
