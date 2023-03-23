@@ -12,6 +12,9 @@ targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven {
+        url "artifactregistry://asia-south1-maven.pkg.dev/dev-application-294611/maven-qe"
+    }
 }
 
 dependencies {
@@ -32,13 +35,13 @@ dependencies {
     testAnnotationProcessor('org.projectlombok:lombok:1.18.20')
 
     // TestVagrant
-    implementation('com.testvagrant.ekam:ekam-commons:0.1.0')
-    implementation('com.testvagrant.ekam:ekam-api:0.0.3-alpha')
+    implementation('dunzoit:ekam-commons:1.0.2')
+    implementation('dunzoit:ekam-api:1.0.0')
 
 
     //logger
     implementation 'org.slf4j:slf4j-api:1.7.32'
-    implementation('com.testvagrant.ekam:ekam-logger:1.0.0')
+    implementation('dunzoit:ekam-logger:1.0.0')
 
     testImplementation('org.junit.jupiter:junit-jupiter-api:5.7.2')
     testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.7.2')
@@ -71,7 +74,7 @@ publishing {
             customizePom(pom)
             groupId 'dunzoit'
             artifactId 'ekam-device-manager'
-            version '1.0.3'
+            version '1.0.3.1'
 
             from components.java
 
