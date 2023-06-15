@@ -74,7 +74,7 @@ publishing {
             customizePom(pom)
             groupId 'dunzoit'
             artifactId 'ekam-device-manager'
-            version '1.0.3.1'
+            version '1.0.4'
 
             from components.java
 
@@ -91,13 +91,6 @@ publishing {
     repositories {
         maven {
             url "artifactregistry://asia-south1-maven.pkg.dev/dev-application-294611/maven-qe"
-/*            credentials {
-                username System.getenv("sonatypeUsername")
-                password System.getenv("sonatypePassword")
-                username sonatypeUsername
-                password sonatypePassword
-            }
-*/
         }
     }
 }
@@ -152,10 +145,3 @@ model {
         destination = file("$buildDir/generated-pom.xml")
     }
 }
-
-
-/*
-signing {
-    sign publishing.publications
-}
-*/
